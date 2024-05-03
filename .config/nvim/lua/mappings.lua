@@ -63,3 +63,8 @@ map("n", "<leader>e", "<cmd>Neotree toggle<cr>")
 map('n', '<Leader>bd', ':bp <BAR> bd #<CR>', { noremap = true, silent = true })
 map('n', '<Leader>bo', '<cmd>Bdelete other<CR>', { noremap = true, silent = true })
 map("n", "<leader>cs", "<cmd>AerialToggle<CR>", { noremap = true, silent = true })
+
+
+-- oil.nvim
+
+map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })

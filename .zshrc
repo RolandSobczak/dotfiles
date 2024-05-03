@@ -14,7 +14,7 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-### OTHER ###
+## OTHER ###
 
 # Postman
 export PATH="$PATH:$HOME/Postman"
@@ -43,9 +43,9 @@ alias tree="eza --tree --no-time --no-user --git"
 eval "$(zoxide init zsh)"
 alias cd=z
 
-# the fuck
-# eval $(thefuck --alias)
-# eval $(thefuck --alias fk)
+# # the fuck
+# # eval $(thefuck --alias)
+# # eval $(thefuck --alias fk)
 
 ### VARS ###
 export XDG_CONFIG_HOME=~/.config/
@@ -78,9 +78,9 @@ export PATH="$VCPKG_ROOT:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-export NVM_DIR="$HOME/.config//nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.config//nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 ### GO ###
 export PATH=$PATH:/usr/local/go/bin

@@ -321,6 +321,12 @@ local plugins = {
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" }
   },
+  {
+    'stevearc/oil.nvim',
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
   -- {
   --   "mhartington/formatter.nvim",
   --   lazy = false,
