@@ -25,3 +25,8 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
+. "$HOME/.cargo/env"
+
+
+
+export STM32CubeMX_PATH=/home/roland/STM32CubeMX

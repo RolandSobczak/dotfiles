@@ -15,6 +15,10 @@ local plugins = {
     lazy = false,
 },
 {
+    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+    lazy = false,
+},
+{
   "tpope/vim-eunuch",
   lazy = false,
 },
@@ -75,122 +79,13 @@ local plugins = {
 -- {
 --   "posva/vim-vue",
 -- },
-{
-    "kdheepak/lazygit.nvim",
-    -- optional for floating window border decoration
-    lazy = false,
-    requires = {
-        "nvim-lua/plenary.nvim",
-    },
-},
-{
-    "theHamsta/nvim-dap-virtual-text",
-    dependencies = {"mfussenegger/nvim-dap"},
-},
-{
-    "rcarriga/nvim-dap-ui",
-    event = "VeryLazy",
-    dependencies = {"mfussenegger/nvim-dap"},
-    config = function()
-      local dap = require("dap")
-      local dapui = require("dapui")
-      dapui.setup()
-      dap.listeners.after.event_initialized["dapui_config"] = function()
-        dapui.open()
-      end
-      dap.listeners.before.event_terminated["dapui_config"] = function()
-        dapui.close()
-      end
-      dap.listeners.before.event_exited["dapui_config"] = function()
-        dapui.close()
-      end
-    end
-  },
   {
-    "jay-babu/mason-nvim-dap.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "mfussenegger/nvim-dap",
-    },
-    opts = {
-      handlers = {}
-    },
-  },
-  {
-      "mfussenegger/nvim-dap",
-      dependencies = {
-          "rcarriga/nvim-dap-ui",
-          "theHamsta/nvim-dap-virtual-text",
-          "leoluz/nvim-dap-go",
-          "Weissle/persistent-breakpoints.nvim",
+      "kdheepak/lazygit.nvim",
+      -- optional for floating window border decoration
+      lazy = false,
+      requires = {
+          "nvim-lua/plenary.nvim",
       },
-      config = function()
-          local dap = require("dap")
-
-          -- Setup the go debug adapter
-          require("dap-go").setup()
-
-          -- Setup DAP virtual text
-          require("nvim-dap-virtual-text").setup({})
-          vim.g.dap_virtual_text = true
-
-          -- Allows breakpoints to last between sessions
-          require("persistent-breakpoints").setup({
-              load_breakpoints_event = { "BufReadPost" },
-          })
-
-          -- Setup DAP UI
-          local dapui = require("dapui")
-          dapui.setup()
-
-          -- Automatically open the DAP UI when the debugging session begins
-          dap.listeners.before.attach.dapui_config = function()
-              dapui.open()
-          end
-          dap.listeners.before.launch.dapui_config = function()
-              dapui.open()
-          end
-          dap.listeners.before.event_terminated.dapui_config = function()
-              dapui.close()
-          end
-          dap.listeners.before.event_exited.dapui_config = function()
-              dapui.close()
-          end
-
-          -- Adding symbols for breakpoints and such
-          vim.fn.sign_define("DapBreakpoint", { text = "🔴", texthl = "", linehl = "", numhl = "" })
-          vim.fn.sign_define("DapStopped", { text = "→", texthl = "", linehl = "", numhl = "" })
-
-          -- Keymaps for debugging
-          vim.keymap.set("n", "<leader>db", require("persistent-breakpoints.api").toggle_breakpoint)
-          vim.keymap.set("n", "<leader>dc", dap.continue)
-          vim.keymap.set("n", "<leader>dt", dapui.toggle)
-      end,
-  },
-  {
-    "leoluz/nvim-dap-go",
-    dependencies = {"mfussenegger/nvim-dap"},
-    config = function (_, opts)
-    require('dap-go').setup = {
-      dap_configurations = {
-        {
-          type = "go",
-          name = "Attach remote",
-          mode = "remote",
-          request = "attach",
-        },
-      },
-      delve = {
-        path = "/home/roland/go/bin/dlv",
-        initialize_timeout_sec = 20,
-        port = "${port}",
-        args = {},
-       build_flags = "",
-      },
-  }
-    end,
-    lazy = false,
   },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -326,6 +221,7 @@ local plugins = {
     opts = {},
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
   },
   -- {
   --   "mhartington/formatter.nvim",

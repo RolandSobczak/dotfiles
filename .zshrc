@@ -34,10 +34,13 @@ alias cat=batcat
 alias k=kubectl
 
 # eza
-alias ls="eza --color=always --git --no-filesize --icons=always --no-time --no-user"
-alias ll="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --all"
-alias l="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --all"
-alias tree="eza --tree --no-time --no-user --git"
+alias ls="exa"
+alias ll="exa -l"
+alias l="exa -l"
+#alias ls="eza --color=always --git --no-filesize --icons=always --no-time --no-user"
+#alias ll="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --all"
+#alias l="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --all"
+#alias tree="eza --tree --no-time --no-user --git"
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -48,7 +51,7 @@ alias cd=z
 # # eval $(thefuck --alias fk)
 
 ### VARS ###
-export XDG_CONFIG_HOME=~/.config/
+export XDG_CONFIG_HOME=~/.config
 export SHELL=/usr/bin/zsh
 export EDITOR=nvim
 export KUBE_EDITOR=nvim
@@ -56,6 +59,7 @@ export KUBE_EDITOR=nvim
 ### PYTHON ###
 
 export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$HOME/.local/bin:$PATH"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
@@ -78,6 +82,11 @@ export PATH="$VCPKG_ROOT:$PATH"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
 # export NVM_DIR="$HOME/.config//nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -85,4 +94,13 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 ### GO ###
 export PATH=$PATH:/usr/local/go/bin
 
+### STM32 ###
+export PATH=$PATH:/home/roland/STM32CubeMX
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/home/roland/.local/share/flatpak/exports/share
+
+### ESP32 ###
+alias get_idf='. $HOME/esp/esp-idf/export.sh'
+
+### SNAP ###
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share/:/usr/local/share/:/var/lib/snapd/desktop
 
