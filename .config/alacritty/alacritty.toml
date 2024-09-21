@@ -2,6 +2,9 @@
 #   "~/.config/alacritty/catppuccin-mocha.toml"
 # ]
 
+[window]
+padding = { x = 4, y = 4 }
+
 [font]
 size = 18.0
 
@@ -14,5 +17,6 @@ family = "Meslo LGM Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "Meslo LGM Nerd Font"
+#family = "Meslo LGM Nerd Font"
+family = "BitstromWera Nerd Font Propo"
 style = "Regular"

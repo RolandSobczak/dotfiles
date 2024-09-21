@@ -1,3 +1,5 @@
+export PATH="$HOME/.scripts/:$PATH"
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -103,4 +105,20 @@ alias get_idf='. $HOME/esp/esp-idf/export.sh'
 
 ### SNAP ###
 export XDG_DATA_DIRS=$XDG_DATA_DIRS:/usr/share/:/usr/local/share/:/var/lib/snapd/desktop
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+### UTILS ###
+alias cpu10='ps -L aux | sort -nr -k 3 | head -10'
+alias mem10='ps -L aux | sort -nr -k 4 | head -10'
+alias lsmount='mount | column -t'
+alias c=clear
+
+### JAVA <3 ###
+
+M2_HOME='/opt/apache-maven-3.9.9'
+export PATH="$M2_HOME/bin:$PATH"
 
